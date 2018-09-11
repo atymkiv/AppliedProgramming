@@ -6,7 +6,7 @@ import xml.etree.cElementTree as ET
 root = ET.Element("root")
 doc = ET.SubElement(root,"doc")
 
-f = open('a.txt', "r") 
+f = open("a.txt", "r") 
 
 all_words = dict()
 for line in f:
@@ -16,10 +16,11 @@ for line in f:
 			all_words[word] = 1
 		else:
 			all_words[word] = +1
-n = 0;
+n = 0
 for x in all_words:
 	ET.SubElement(doc, "field%s"%n, name = x).text = str(all_words.get(x))
-	n=n+1;
+	n+=1
+
 tree = ET.ElementTree(root)
 tree.write("c.xml")	
 f.close()

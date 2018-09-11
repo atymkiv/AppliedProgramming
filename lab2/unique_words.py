@@ -6,16 +6,19 @@ import xml.etree.cElementTree as ET
 root = ET.Element("root")
 doc = ET.SubElement(root,"doc")
 
-f = open("a.txt", "r") 
-
-all_words = dict()
-for line in f:
-	words = line.split()
-	for word in words:
-		if word not in list(all_words):
-			all_words[word] = 1
-		else:
-			all_words[word] = +1
+with open("a.txt", "r") as f:
+	all_words = dict()
+	for line in f:
+		words = line.split()
+		for word in words:
+			if ',' in word:
+				word = word.replace(',','')				
+			elif '.' in word:
+				word = word.replace('.','')				
+			if word not in list(all_words):
+				all_words[word] = 1
+			else:
+				all_words[word] = +1
 n = 0
 for x in all_words:
 	ET.SubElement(doc, "field%s"%n, name = x).text = str(all_words.get(x))
@@ -23,4 +26,3 @@ for x in all_words:
 
 tree = ET.ElementTree(root)
 tree.write("c.xml")	
-f.close()

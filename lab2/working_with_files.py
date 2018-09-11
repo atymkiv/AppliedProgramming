@@ -7,22 +7,14 @@
 
 import os
 import sys
-
-f =  open("a.txt", "r") 
-#Парні
-even = open("b1.txt", "w") 
-#Непарні
-odd = open("b2.txt", "w")
-newLine = ""
-count = 0;
-for i in f:
-    count+=1
-    if count%2 == 0:
-        even.write(i.upper())
-    else:
-        odd.write(i.lower())
-f.close
-even.close()
-odd.close()
+with open("a.txt", "r") as f, open("b1.txt", "w") as even, open("b2.txt", "w") as odd:
+	newLine = ""
+	count = 0;
+	for i in f:
+		count+=1
+		if count%2 == 0:
+   			even.write(i.upper())
+		else:
+   			odd.write(i.lower())
 
 			

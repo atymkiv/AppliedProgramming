@@ -18,7 +18,8 @@ with open("a.txt", "r") as f:
 			if word not in list(all_words):
 				all_words[word] = 1
 			else:
-				all_words[word] = +1
+				all_words[word]+=1
+				
 n = 0
 for x in all_words:
 	ET.SubElement(doc, "field%s"%n, name = x).text = str(all_words.get(x))

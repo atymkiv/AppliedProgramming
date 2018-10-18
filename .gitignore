@@ -1,1 +1,3 @@
-__pycache__
+__pycache__/
+lab3/
+flask_app_env/

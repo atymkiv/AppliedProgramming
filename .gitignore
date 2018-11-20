@@ -1,2 +1,10 @@
-lab3/
+flask_app_env/
+lab1/
+lab2/
+mysite/
+REST_FLASK/
+table/
+cloud_sql_proxy.exe
+mysqlclient-1.3.13-cp37-cp37m-win32.whl
+GoogleCloudTut/
 flask_app_env/
